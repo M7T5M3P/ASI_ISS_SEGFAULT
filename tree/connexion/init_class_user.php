@@ -48,6 +48,7 @@ class User
     }
     function modify_access()
     {
+        echo "j'essaye";
         $sql = "UPDATE `user` SET `access` = 1 WHERE `email` = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
@@ -160,6 +161,8 @@ class User
     }
     function check_password_email()
     {
+        echo $this->get_tmp_password() . "<br>";
+        echo $this->tmp_password;
         if (password_verify($this->tmp_password, $this->get_tmp_password())) {
             return 1;
         }
