@@ -30,7 +30,6 @@ class User
             $this->access = 0;
             $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
-            echo "ici <br><br>";
             $this->access = $this->get_access();
             $this->username = $this->get_username();
             if ($this->connect_user())
@@ -38,10 +37,10 @@ class User
             else
                 $this->html = $this->create_html(0);
         } else {
+            echo "ici <br><br>";
             $this->access = $this->get_access();
             $this->tmp_password = $tmp_pwd;
             $this->username = $this->get_username();
-
             if ($this->check_password_email())
                 $this->modify_access();
             $this->html = $this->mail_html();
@@ -162,15 +161,9 @@ class User
     function check_password_email()
     {
         if (password_verify($this->tmp_password, $this->get_tmp_password())) {
-            $password = 1;
-        } else {
-            $password = 0;
-        }
-        $this->conn->close();
-        if ($password == 1)
             return 1;
-        else
-            return 0;
+        }
+        return 0;
     }
     function connect_user()
     {
