@@ -27,7 +27,7 @@ class User
             $this->username = $username;
             $this->avatar = $avatar;
             $this->new_user();
-            $this->access = $this->get_access();
+            $this->access = 0;
             $this->html = $this->create_html();
         } else if ($bool == 1) {
             $this->access = $this->get_access();

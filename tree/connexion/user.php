@@ -18,7 +18,7 @@ $email = $_GET["email"];
 $avatar = $_GET["avatar"];
 $password = $_GET["password"];
 
-if ($_GET["signin"] == 1) {
+if ($_GET["signin"] == 0) {
     $user = new User(0, $username, $password, $email, $avatar, null);
 } else {
     new User(1, null, $password, $email, null, null);
