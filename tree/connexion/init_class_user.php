@@ -97,6 +97,7 @@ class User
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+        var_dump($row);
         return $row["access"];
     }
     function getIPAddress()
