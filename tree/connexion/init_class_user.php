@@ -41,10 +41,10 @@ class User
             $this->access = $this->get_access();
             $this->tmp_password = $tmp_pwd;
             $this->username = $this->get_username();
+
             if ($this->check_password_email())
-                $this->html = $this->mail_html(1);
-            else
-                $this->html = $this->mail_html(0);
+                $this->modify_access();
+            $this->html = $this->mail_html();
         }
     }
     function modify_access()
@@ -67,9 +67,9 @@ class User
                 </div>";
         }
     }
-    function mail_html($check)
+    function mail_html()
     {
-        if ($check) {
+        if ($this->access) {
             return "<div class=\"connection\">
                     connected
                 </div>";
@@ -161,13 +161,7 @@ class User
     }
     function check_password_email()
     {
-        $sql = "SELECT tmp_password FROM user WHERE email Like ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("s", $this->email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        if (password_verify($this->tmp_password, $row['tmp_password'])) {
+        if (password_verify($this->tmp_password, $this->get_tmp_password())) {
             $password = 1;
         } else {
             $password = 0;

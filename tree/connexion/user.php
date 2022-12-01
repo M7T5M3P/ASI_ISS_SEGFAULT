@@ -13,9 +13,7 @@ if (isset($_GET["tmp_pwd"])) {
     $tmp_pwd = $_GET["tmp_pwd"];
     $user = new User(2, $username, $password, $email, $avatar, $tmp_pwd);
     $user->tmp_password = $user->get_tmp_password();
-    if ($tmp_pwd == $user->tmp_password) {
-        $user->modify_access();
-    }
+    echo $user->html;
 } else if ($_GET["signin"] == 0) {
     $user = new User(0, $username, $password, $email, $avatar, null);
 } else {
