@@ -22,14 +22,15 @@ class User
         $this->conn = $connection->get_connection();
         $this->email = $email;
         $this->password = $password;
-        $this->access = $this->get_access();
         if ($bool == 0) {
             $this->tmp_password = $this->generate_password();
             $this->username = $username;
             $this->avatar = $avatar;
             $this->new_user();
+            $this->access = $this->get_access();
             $this->html = $this->create_html();
         } else {
+            $this->access = $this->get_access();
             $this->tmp_password = $this->generate_password();
             $this->username = $this->get_username();
             if ($this->connect_user() == 0)
@@ -110,17 +111,32 @@ class User
         }
         return $ip;
     }
+    function check_email()
+    {
+        $sql = "SELECT email FROM user";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        for (; $row = $result->fetch_assoc();) {
+            if ($row['email'] == $this->email) {
+                return 1;
+            }
+        }
+        return 0;
+    }
     function new_user()
     {
-        $options = ['cost' => 12,];
-        $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
-        $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
-        $stmt = $this->conn->prepare($sql);
-        $ip = $this->getIPAddress();
-        $stmt->bind_param("ssssss", $this->username, $password, $this->email, $ip, $this->avatar, $this->tmp_password);
-        $stmt->execute();
-        $this->conn->close();
-        $this->send_email();
+        if ($this->check_email() != 1) {
+            $options = ['cost' => 12,];
+            $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
+            $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
+            $stmt = $this->conn->prepare($sql);
+            $ip = $this->getIPAddress();
+            $stmt->bind_param("ssssss", $this->username, $password, $this->email, $ip, $this->avatar, $this->tmp_password);
+            $stmt->execute();
+            $this->conn->close();
+            $this->send_email();
+        }
     }
     function connect_user()
     {
