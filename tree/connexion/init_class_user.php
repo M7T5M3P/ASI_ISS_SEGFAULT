@@ -29,9 +29,16 @@ class User
             $this->new_user();
             $this->access = $this->get_access();
             $this->html = $this->create_html();
+        } else if ($bool == 1) {
+            $this->access = $this->get_access();
+            $this->username = $this->get_username();
+            if ($this->connect_user() == 0)
+                $this->html = $this->create_html();
+            else
+                $this->html = $this->create_html();
         } else {
             $this->access = $this->get_access();
-            $this->tmp_password = $this->generate_password();
+            $this->tmp_password = $tmp_pwd;
             $this->username = $this->get_username();
             if ($this->connect_user() == 0)
                 $this->html = $this->create_html();
