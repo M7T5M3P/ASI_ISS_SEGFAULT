@@ -91,7 +91,7 @@ class User
     }
     function get_access()
     {
-        $sql = "SELECT acces FROM user WHERE email Like ?";
+        $sql = "SELECT access FROM user WHERE email Like ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
         $stmt->execute();
