@@ -57,7 +57,7 @@ class User
     }
     function create_html($check)
     {
-        if ($check == 0) {
+        if ($check) {
             return "<div class=\"connection\">
                     connected
                 </div>";
@@ -69,7 +69,7 @@ class User
     }
     function mail_html($check)
     {
-        if ($check == 0) {
+        if ($check) {
             return "<div class=\"connection\">
                     connected
                 </div>";
