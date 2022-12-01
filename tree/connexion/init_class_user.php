@@ -136,7 +136,7 @@ class User
         if ($this->check_email() != 1) {
             $options = ['cost' => 12,];
             $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
-            $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `tmp_password`) VALUES (?,?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $ip = $this->getIPAddress();
             $stmt->bind_param("ssssss", $this->username, $password, $this->email, $ip, $this->avatar, $this->tmp_password);
