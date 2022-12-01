@@ -116,7 +116,8 @@ class User
         $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
         $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("ssssss", $this->username, $password, $this->email, $this->getIPAddress(), $this->avatar, $this->tmp_password);
+        $ip = $this->getIPAddress();
+        $stmt->bind_param("ssssss", $this->username, $password, $this->email, $ip, $this->avatar, $this->tmp_password);
         $stmt->execute();
         $this->conn->close();
         $this->send_email();
