@@ -2,33 +2,44 @@
 <html>
     <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <title>SexInfo</title>
 
     <body>
-        <header>
+
+    <header>
+        <div class="logo">
+
+        </div>
+        <div class="title">
             <h1>SexInfo</h1>
+        </div>
+        <div class="nav_bar">
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="login.php">Login</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php" id="login">Login</a></li>
+                    <li><a href="register.php" id="register">>Register</a></li>
                     <li><a href="#jeu">Jeu</a></li>
-                    <button type="button" class="btn btn-primary" id="button_connect">Créer une session</button>
+                    <button type="button" class="btn btn-primary" id="create_session">Créer une session</button>
                     <button type="button" class="btn btn-success" id="button_connect2">Rejoindre une session</button>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-
-        <footer>
-            
-        </footer>
         
+            <div class="main">
+            </div>
+        
+            <footer>
+            
+            </footer>
     </body>
+
     <script type="text/javascript">
         $(document).ready(function(){
 

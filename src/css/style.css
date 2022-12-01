@@ -1,0 +1,85 @@
+.login { 
+    width : 100%;
+    grid-area: login; 
+    left: 50%;
+    bottom: 20px;
+    margin: 0 auto;
+    border: 10px solid black;
+    font-size:x-large;
+    color: #fdc600;
+    background-color: #006400;
+}
+
+.signin { 
+    width : 100%;
+    grid-area: signin; 
+    border: 10px solid black;
+    border-top:none;
+    font-size:x-large;
+    color: #fdc600;
+    background-color: #006400;
+}
+
+.logo { 
+    width : 100%;
+    grid-area: logo; 
+    border: 10px solid black;
+    border-top:none;
+    font-size:x-large;
+    color: #fdc600;
+    background-color: #006400;
+}
+
+.title { 
+    width : 100%;
+    grid-area: title; 
+    border: 10px solid black;
+    border-top:none;
+    font-size:x-large;
+    color: #fdc600;
+    background-color: #006400;
+}
+
+.nav_bar { 
+    width : 100%;
+    grid-area: nav_bar; 
+    border: 10px solid black;
+    border-top:none;
+    font-size:x-large;
+    color: #fdc600;
+    background-color: #006400;
+}
+
+@media (min-width: 900px) and (max-width: 1920px) {
+    header {
+        height: 10%;
+        width:100%;
+        display: grid;
+        grid-template-columns:repeat(2, auto);
+        grid-template-areas:
+            'logo title'
+            'nav_bar nav_bar';
+    }
+    body {
+        height: 80%;
+        width:100%;
+        display: grid;
+        grid-template-areas:
+            'header header'
+            'main main'
+            'footer footer';
+        grid-area: body;
+        color: #fdc600;
+        justify-content: center;
+    }
+    footer {
+        height: 100%;
+        width:100%;
+        display: grid;
+        grid-template-areas:
+            'footer footer';
+        grid-area: footer;
+        color: #fdc600;
+        justify-content: center;
+    }
+}
