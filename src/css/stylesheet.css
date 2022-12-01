@@ -1,1 +1,151 @@
-.test{width:100px;height:100px;background-color:red}*,*::after,*::before{margin:0;padding:0;box-sizing:border-box}html{font-size:62.5%}@media only screen and (max-width: 75em){html{font-size:56.25%}}@media only screen and (max-width: 56.25em){html{font-size:50%}}@media only screen and (max-width: 37.5em){html{font-size:43.75}}@media only screen and (min-width: 112.5em){html{font-size:75%}}
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+:root {
+  --color-black:           #000;
+  --color-grey-dark-1:     #999;
+  --color-grey-dark-2:     #777;
+  --color-grey-dark-3:     #333;
+  --color-grey-dark-4:     #222;
+  --color-grey-dark-5:     #111;
+  --color-white:           #fff;
+  --color-grey-light-1:    #f8f8f8;
+  --color-grey-light-2:    #f1f1f1;
+  --color-grey-light-3:    #ebebeb;
+  --color-grey-light-4:    #e4e4e4;
+  --color-grey-light-5:    #dedede;
+  --color-grey-light-6:    #d7d7d7;
+  --color-grey-light-7:    #d0d0d0;
+  --color-grey-light-8:    #cacaca;
+  --color-grey-light-9:    #c3c3c3;
+  --color-grey-light-10:   #bdbdbd;
+  --color-primary:         #001D4A;
+  --color-secondary:       #605856;
+  --color-tertiary:        #FFC857;
+  --color-tertiary-light:  #ffd071;
+  --color-tertiary-dark:   #ffb724;
+  --color-quaternary:      #797d7f;
+  --color-quinary:         #c1c8cc;
+  --visible-nav-bar-height:8rem;
+  --content-width: 100rem; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 43.75; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+.return_btn {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  height: 7rem;
+  width: 7rem;
+  z-index: 10;
+  background-color: white;
+  border-radius: 50%; }
+  .return_btn__icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-54%, -50%);
+    height: 6rem;
+    width: 6rem;
+    fill: var(--color-grey-dark-2); }
+
+.login-portal__header {
+  background-image: linear-gradient(to bottom right, var(--color-primary-light), var(--color-primary-dark));
+  align-self: stretch;
+  color: var(--color-grey-dark-4);
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  font-family: serif;
+  font-weight: 800;
+  font-size: 16rem;
+  text-shadow: -2px -2px white; }
+
+.login-portal__interface {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  height: 100%;
+  align-content: space-between; }
+  .login-portal__interface--message h1 {
+    font-size: 8rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 300; }
+  .login-portal__interface--input {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem; }
+    .login-portal__interface--input--email, .login-portal__interface--input--password, .login-portal__interface--input--nickname {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .login-portal__interface--input--email--icon, .login-portal__interface--input--password--icon, .login-portal__interface--input--nickname--icon {
+        height: 6rem;
+        width: 6rem;
+        fill: white;
+        margin-right: 1.5rem; }
+      .login-portal__interface--input--email--input, .login-portal__interface--input--password--input, .login-portal__interface--input--nickname--input {
+        background-color: var(--color-grey-dark-4);
+        font-size: 2.5rem;
+        border: none;
+        border-radius: 3px;
+        border-bottom: 3px solid var(--color-grey-dark-1);
+        height: 5rem;
+        color: white; }
+        .login-portal__interface--input--email--input:focus, .login-portal__interface--input--password--input:focus, .login-portal__interface--input--nickname--input:focus {
+          outline: none;
+          border-bottom: 3px solid var(--color-primary); }
+    .login-portal__interface--input--submit-btn {
+      background-color: white;
+      height: 6rem;
+      width: calc(100% - 8rem);
+      border: none;
+      border-radius: 1000px;
+      color: black;
+      font-size: 3rem;
+      max-width: 50rem;
+      font-family: "Lato", sans-serif;
+      font-weight: 300; }
+      .login-portal__interface--input--submit-btn:active, .login-portal__interface--input--submit-btn:focus {
+        animation: scaleOscillate .45s linear infinite; }
+  .login-portal__interface--options {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center; }
+    .login-portal__interface--options a {
+      color: white; }

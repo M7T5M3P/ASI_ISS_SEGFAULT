@@ -32,4 +32,8 @@ class parse_ini
     {
         return $this->path['CSS'];
     }
+    function get_ICONS()
+    {
+        return $this->path['ICONS'];
+    }
 }

@@ -1,0 +1,20 @@
+.return_btn {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    height: 7rem;
+    width: 7rem;
+    z-index: 10;
+    background-color: white;
+    border-radius: 50%;
+
+    &__icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-54%, -50%);
+        height: 6rem;
+        width: 6rem;
+        fill: var(--color-grey-dark-2);
+    }
+}
