@@ -20,9 +20,9 @@
         <div class="nav_bar">
             <nav>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="login.php" id="login">Login</a></li>
-                    <li><a href="register.php" id="register">>Register</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="login.php" id="login">Inscription</a></li>
+                    <li><a href="register.php" id="register">Connexion</a></li>
                     <li><a href="#jeu">Jeu</a></li>
                     <button type="button" class="btn btn-primary" id="create_session">Créer une session</button>
                     <button type="button" class="btn btn-success" id="button_connect2">Rejoindre une session</button>
@@ -33,25 +33,33 @@
 
         
             <div class="main">
+                <div class="vih">
+                    <div class="title_vih">
+                        <h3>Le VIH:</h3>
+                    </div>
+                    <div class="info_vih">
+                        Le VIH est le virus de l’immunodéficience humaine.
+                        La particularité du VIH est qu’il s’attaque aux cellules du système immunitaire, en particulier aux lymphocytes T CD4. Ce sont des cellules qui protègent le corps contre les attaques des maladies et autres infections.
+                    </div>
+                </div>
+                <div class="title_A">
+                    <h4>L'Hépatite A:</h4>
+                </div>
+
             </div>
+
+</div>
+
+
+                
+
+                
         
             <footer>
-            
+            <h4>L’Hépatite A:</h4>
+            <p>L’hépatite A est une maladie infectieuse aigüe du foie provoquée par un virus (VHA). Elle se transmet principalement par voie féco-orale ou alimentaire. Elle se distingue aussi de l’hépatite B ou C par le fait qu’elle ne devient jamais chronique.</p>
+            <h6>L'Hépatite B:</h6>
             </footer>
     </body>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            $("#button_connect").click(function(){
-                console.log("button créer");
-            });
-
-            $("#button_connect2").click(function(){
-                console.log("button rejoindre");
-            });
-
-        });
-</script>
 
 </html>
