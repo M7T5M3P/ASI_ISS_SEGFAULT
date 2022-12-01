@@ -92,6 +92,7 @@ class User
     }
     function get_tmp_password()
     {
+        echo $this->email;
         $sql = "SELECT tmp_password FROM user WHERE email Like ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
