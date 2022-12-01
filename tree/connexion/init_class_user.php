@@ -30,6 +30,7 @@ class User
             $this->access = 0;
             $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
+            echo "ici <br><br>";
             $this->access = $this->get_access();
             $this->username = $this->get_username();
             if ($this->connect_user())
@@ -182,10 +183,12 @@ class User
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+        var_dump($row);
         if (password_verify($this->password, $row['password'])) {
             $password = 1;
         }
         $this->conn->close();
+        echo "<br>" . $password;
         if ($password == 1)
             return 1;
         else
