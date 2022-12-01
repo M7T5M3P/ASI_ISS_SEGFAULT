@@ -20,10 +20,6 @@ $password = $_GET["password"];
 
 if ($_GET["signin"] == 1) {
     $user = new User(0, $username, $password, $email, $avatar, null);
-    $user->tmp_password = $user->get_tmp_password();
-    if ($tmp_pwd == $user->tmp_password) {
-        $user->modify_access();
-    }
 } else {
     new User(1, null, $password, $email, null, null);
 }
