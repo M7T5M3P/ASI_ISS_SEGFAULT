@@ -97,7 +97,6 @@ class User
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        var_dump($row);
         return $row["access"];
     }
     function getIPAddress()
@@ -117,7 +116,7 @@ class User
         $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
         $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("sssssi", $this->username, $password, $this->email, $this->getIPAddress(), $this->avatar, $this->tmp_password);
+        $stmt->bind_param("ssssss", $this->username, $password, $this->email, $this->getIPAddress(), $this->avatar, $this->tmp_password);
         $stmt->execute();
         $this->conn->close();
         $this->send_email();
