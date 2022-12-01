@@ -9,13 +9,12 @@ $email = $_GET["email"];
 $avatar = $_GET["avatar"];
 $password = $_GET["password"];
 
-$this->tmp_password = $this->get_tmp_password();
-if ($tmp_pwd == $this->tmp_password) {
-    $this->modify_access();
-}
-
 if ($_GET["signin"] == 1) {
-    new User(0, $username, $password, $email, $avatar);
+    $user = new User(0, $username, $password, $email, $avatar);
+    $user->tmp_password = $user->get_tmp_password();
+    if ($tmp_pwd == $user->tmp_password) {
+        $user->modify_access();
+    }
 } else {
     new User(1, null, $password, $email, null);
 }
