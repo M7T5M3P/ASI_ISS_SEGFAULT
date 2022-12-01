@@ -168,6 +168,8 @@ class User
         $row = $result->fetch_assoc();
         if (password_verify($this->tmp_password, $row['tmp_password'])) {
             $password = 1;
+        } else {
+            $password = 0;
         }
         $this->conn->close();
         if ($password == 1)
@@ -186,9 +188,10 @@ class User
         var_dump($row);
         if (password_verify($this->password, $row['password'])) {
             $password = 1;
+        } else {
+            $password = 0;
         }
         $this->conn->close();
-        echo "<br>" . $password;
         if ($password == 1)
             return 1;
         else
