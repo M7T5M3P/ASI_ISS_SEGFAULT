@@ -90,6 +90,7 @@ class User
     }
     function send_email()
     {
+        echo "hi";
         $mail = new PHPMailer(true);
         try {
             //Server settings
