@@ -7,6 +7,11 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require_once '/var/www/html/Portfolio/jam/ASI_ISS_SEGFAULT/vendor/autoload.php'; 
 
+include 'init_class_user.php';
+
+$username = $_GET["username"];
+$email = $_GET["email"];
+$password = $_GET["password"];
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
@@ -22,12 +27,12 @@ try {
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('sexinfo.asi@gmail.com', 'Mailer');
-    $mail->addAddress('mathys13002@gmail.com', 'Joe User');     //Add a recipient
+    $mail->setFrom('sexinfo.asi@gmail.com', 'sexinfo');
+    $mail->addAddress($email, $username);     //Add a recipient
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->Subject = 'SexInfo Secret Password';
+    $mail->Body    = 'Here is your secret password <b>'.$password.'</b>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
