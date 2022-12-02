@@ -8,6 +8,7 @@ $sex_info = new parse_ini();
     <meta charset="utf-8" />
     <link rel="stylesheet" href="<?php echo $sex_info->get_CSS() ?>" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <title>SexInfo</title>
 <body>
@@ -23,11 +24,13 @@ $sex_info = new parse_ini();
                     &#8220;Votre premier pas contre le SIDA.&#8221;
                     <div class="navigation__visible--slogan--author">- Our Managing Director -</div>
                 </div>
-                <label for="navi-toggle">
-                    <svg class="login-portal__interface--input--email--icon">
-                         <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-triangle-down"></use>
-                    </svg>
-                </label>
+                <div class="navigation__visible--right">
+                    <label for="navi-toggle">
+                         <svg class="navigation__visible--right--icon">
+                              <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-triangle-down"></use>
+                         </svg>
+                    </label>
+                </div>
             </div>
             <div>
                 
