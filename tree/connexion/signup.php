@@ -78,12 +78,6 @@ $sex_info = new parse_ini();
                                 value='Sign In' id='signin'>
                         </div>
                     </div>
-                    <div class='login-portal__interface--options'>
-                        <a class='login-portal__interface--options--forgotPassword' href='forgotPassword.php'>Forgot
-                            Password</a><br>
-                        <a class='login-portal__interface--options--createAccount' href='sign_in.php'>Create an
-                            Account</a><br>
-                    </div>
                 </div>
             </form>
         </div>

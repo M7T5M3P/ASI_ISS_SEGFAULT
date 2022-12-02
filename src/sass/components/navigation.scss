@@ -1,0 +1,110 @@
+@import "../abstract/mixins";
+
+.navigation {
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 3rem;
+    @include respond(tab-port) {
+        padding: 1rem 0;
+    }
+    width: 100%;
+    border-bottom: solid 2px var(--color-primary);
+    position: fixed;
+    background-color: var(--color-grey-light-1);
+
+    &__logo {
+        max-width: 45%;
+
+        &--img {
+            width: 9rem;
+            max-width: 100%;
+        }
+    }
+
+    &__nav {
+        display: none;
+    }
+
+    &__portal {
+        width: 50%;
+        padding: 2rem;
+        overflow: scroll;
+        height: calc(100vh - var(--visible-nav-bar-height) - 2rem - 1rem);
+
+        &--page{
+            &--img {
+                width: 100%;
+                max-width: 50rem;
+            }
+        }
+    }
+    &__visible {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: var(--visible-nav-bar-height);
+        padding: 1rem;
+
+        &--slogan {
+            font-size: 2rem;
+            padding: 0 2rem;
+            text-align: center;
+            font-family: "Noto Sans KR";
+            font-weight: 500;
+            color: var(--color-grey-dark-3);
+
+            @include respond(tab-land){
+                display: none;
+            }
+        }
+        &--right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            overflow: hidden;
+            width: 4rem;
+            height: 4rem;
+
+            &--icon {
+                width: 4rem;
+                fill: var(--color-grey-dark-3);
+                transition: .2s ease-in-out;
+            }
+        }
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__checkbox:checked .navigation__visible--right--icon {
+        transform: rotate(180deg);
+        fill: var(--color-primary);
+    }
+
+}
+
+#nav_list {
+    height: 0rem;
+    width: 100%;
+    overflow: hidden;
+
+    & a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem;
+        text-align: center;
+        text-decoration: none;
+        color: var(--color-grey-dark-3);
+        font-size: 4rem;
+
+        &:hover {
+            background-color: var(--color-primary);
+        }
+    }
+}
+
+.navigation:hover #nav_list {
+    height: 50vh;
+}

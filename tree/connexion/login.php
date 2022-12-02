@@ -61,12 +61,6 @@
                             value='Login'>
                     </div>
                 </div>
-                <div class='login-portal__interface--options'>
-                    <a class='login-portal__interface--options--forgotPassword' href='forgotPassword.php'>Forgot
-                        Password</a><br>
-                    <a class='login-portal__interface--options--createAccount' href='createAccount.php'>Create an
-                        Account</a><br>
-                </div>
             </div>
         </div>
     </div>

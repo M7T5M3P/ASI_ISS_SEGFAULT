@@ -22,7 +22,6 @@ $sex_info = new parse_ini();
                 </div>
                 <div class="navigation__visible--slogan">
                     &#8220;Votre premier pas contre le SIDA.&#8221;
-                    <div class="navigation__visible--slogan--author">- Our Managing Director -</div>
                 </div>
                 <div class="navigation__visible--right">
                     <label for="navi-toggle">
@@ -32,35 +31,15 @@ $sex_info = new parse_ini();
                     </label>
                 </div>
             </div>
-            <div>
-                
+            <div id="nav_list">
+                <a href="./index.php">Home</a>
+                <a href="./tree/connexion/login.php">Login</a>
+                <a href="./tree/connexion/signup.php">Creation de Compte</a>
+                <a href="./tree/game/game01/game01.php">Jeu</a>
             </div>
     </nav>
-    <header>
-        <div class="logo">
-            <img src="logo.png">
-        </div>
-        <div class="title">
-            <h1>SexInfo</h1>
-        </div>
-        <div class="nav_bar">
-            <div class="head-top">
-            <nav>
-                <ul>
-                    <li><a href="index.php">Accueil</a></li>
-                    <li><a href="login.php" id="login">Inscription</a></li>
-                    <li><a href="register.php" id="register">Connexion</a></li>
-                    <li><a href="#jeu">Jeu</a></li>
-                    <li><a href="#Contact">Contactez-nous</a></li>
-                    <button type="button" class="btn btn-primary" id="create_session">Créer une session</button>
-                    <button type="button" class="btn btn-success" id="button_connect2">Rejoindre une session</button>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-        
-            <div class="main">
+         <div style="margin-top: 13rem;"></div>
+         <div class="main">
                 <div class="vih">
                     <div class="title_vih">
                         <h3>Le VIH:</h3>
@@ -120,6 +99,14 @@ $sex_info = new parse_ini();
                     Copyrigth © SexInfo.com
                 </div>
             </footer>
+<script type="text/javascript">
+const nav_toggle = document.getElementById("navi-toggle");
+const nav_dropdown = document.getElementById("nav_list");
+
+if (nav_toggle.checked) {
+nav_dropdown.style.display = block;
+}
+</script>
     </body>
 
 </html>
