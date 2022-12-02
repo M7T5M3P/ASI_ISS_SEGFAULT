@@ -11,7 +11,7 @@ $sex_info = new parse_ini();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $sex_info->get_CSS() ?>" media="screen" />
-    <script src='<?php echo $sex_info->get_JS() ?>/sign_in.js'></script>
+    <script src='<?php echo $sex_info->get_JS() ?>sign_in.js'></script>
 </head>
 
 <body>
