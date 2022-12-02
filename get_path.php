@@ -36,4 +36,8 @@ class parse_ini
     {
         return $this->path['ICONS'];
     }
+    function get_LOGOIMG()
+    {
+        return $this->path['LOGOIMG'];
+    }
 }

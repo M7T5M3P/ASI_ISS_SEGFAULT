@@ -9,7 +9,7 @@ $sex_info = new parse_ini();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sex Info</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $sex_info->get_CSS() ?>" media="screen" />
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
     <script src='<?php echo $sex_info->get_JS() ?>sign_in.js'></script>
@@ -17,7 +17,7 @@ $sex_info = new parse_ini();
 
 <body>
     <div class="return_btn">
-        <a href='/index.html'>
+        <a href='/index.php'>
             <svg class=return_btn__icon>
                 <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-chevron-left"></use>
             </svg>
