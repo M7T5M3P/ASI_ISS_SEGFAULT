@@ -8,7 +8,7 @@ function new_user() {
         $.get("./user.php", { 'username': '', 'password': password, 'email': email, 'avatar': '', 'signin': 1 },
             function (data) {
                 if (data == "1") {
-                    location.replace("game/game01/game01.php");
+                    location.replace("../game/game01/game01.php?email=" + email);
                 } else {
                     alert("Tu as fait une erreur ou une erreur interne c'est produite.");
                 }

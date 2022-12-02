@@ -37,7 +37,7 @@
                 <div class='login-portal__interface--message'>
                     <h1>Login</h1>
                 </div>
-                <form onsubmit="event.preventDefault(); check_password(); return false;">
+                <form onsubmit="event.preventDefault(); new_user(); return false;">
                     <div class='login-portal__interface--input'>
                         <div class="login-portal__interface--input--email">
                             <label for="email-input">
