@@ -71,7 +71,7 @@ $sex_info = new parse_ini();
                         </div>
                         <div class="login-portal__interface--input--submit">
                             <input class='login-portal__interface--input--submit-btn' type='submit' name='signin'
-                                value='Sign In'>
+                                value='Sign In' id='signin'>
                         </div>
                     </div>
                     <div class='login-portal__interface--options'>
