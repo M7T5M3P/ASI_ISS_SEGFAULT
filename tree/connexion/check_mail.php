@@ -35,4 +35,4 @@ function CallAPI($method, $url, $data = false)
 
     return $result;
 }
-CallAPI("POST", "https://send.api.mailtrap.io/api/send", '{"from":{"email":"mailtrap@www.mathieu-rio.fr","name":"Mailtrap Test"},"to":[{"email":"mathys13002@gmail.com"}],"subject":"You are awesome!","text":"Congrats for sending test email with Mailtrap!","category":"Integration Test"}');
+echo CallAPI("POST", "https://send.api.mailtrap.io/api/send", '{"from":{"email":"mailtrap@www.mathieu-rio.fr","name":"Mailtrap Test"},"to":[{"email":"mathys13002@gmail.com"}],"subject":"You are awesome!","text":"Congrats for sending test email with Mailtrap!","category":"Integration Test"}');
