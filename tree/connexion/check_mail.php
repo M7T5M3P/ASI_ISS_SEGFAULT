@@ -1,38 +1,37 @@
-<?php
-header('Content-Type: text/html; charset=utf-8');
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-function CallAPI($method, $url, $data = false)
-{
-    $curl = curl_init();
+<?php 
+namespace App\Controller;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-    switch ($method)
-    {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
+//Load Composer's autoloader
+require_once '/var/www/html/Portfolio/jam/ASI_ISS_SEGFAULT/vendor/autoload.php'; 
 
-            if ($data)
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            break;
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-        default:
-            if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
-    }
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
-    // Optional Authentication:
-    $authorization = "Authorization: Bearer 23b09f09da7c349aec07c2904b59da11";
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
+try {
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'sexinfo.asi@gmail.com';                     //SMTP username
+    $mail->Password   = 'cxnmqccfvyataqbd';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+    $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    //Recipients
+    $mail->setFrom('sexinfo.asi@gmail.com', 'Mailer');
+    $mail->addAddress('mathys13002@gmail.com', 'Joe User');     //Add a recipient
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-    $result = curl_exec($curl);
-
-    curl_close($curl);
-
-    return $result;
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-echo CallAPI("POST", "https://send.api.mailtrap.io/api/send", '{"from":{"email":"mailtrap@www.mathieu-rio.fr","name":"Mailtrap Test"},"to":[{"email":"mathys13002@gmail.com"}],"subject":"You are awesome!","text":"Congrats for sending test email with Mailtrap!","category":"Integration Test"}');
