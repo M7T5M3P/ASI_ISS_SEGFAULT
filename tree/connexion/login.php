@@ -24,8 +24,10 @@
             <div class="login-portal__header">
                 <span>Sex Info</span>
             </div>
-         <form method='post'>
-              <div class="login-portal__interface">
+     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+     <path fill="#219EBC" fill-opacity="1" d="M0,192L26.7,197.3C53.3,203,107,213,160,197.3C213.3,181,267,139,320,144C373.3,149,427,203,480,213.3C533.3,224,587,192,640,192C693.3,192,747,224,800,229.3C853.3,235,907,213,960,176C1013.3,139,1067,85,1120,106.7C1173.3,128,1227,224,1280,229.3C1333.3,235,1387,149,1413,106.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z" style="--darkreader-inline-fill: #007acc;"></path>
+                       </svg>
+            <div class="login-portal__interface">
                     <div class='login-portal__interface--message'>
                         <h1>Login</h1>
                     </div>
@@ -55,7 +57,6 @@
                         <a class='login-portal__interface--options--createAccount' href='createAccount.php'>Create an Account</a><br>
                     </div>   
                 </div>
-            </form>
          </div>
      </div>
 </body>
