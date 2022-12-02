@@ -54,7 +54,7 @@
                     </div>
                     <div class="login-portal__interface--input--submit">
                         <input class='login-portal__interface--input--submit-btn' type='submit' name='signin'
-                            value='Sign In' id='signin'>
+                            value='Se connecter' id='password'>
                     </div>
             </div>
         </div>
