@@ -23,7 +23,6 @@
             </svg>
         </a>
     </div>
-    <label id="email" hidden><?php echo $_GET["email"]?></label>
     <div class="login">
         <div class="login-portal">
             <div class="login-portal__header">
