@@ -1,8 +1,16 @@
 <?php
+namespace App\Controller;
 header('Content-Type: text/html; charset=utf-8');
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include '../../connect_todb.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require_once '/var/www/html/Portfolio/jam/ASI_ISS_SEGFAULT/vendor/autoload.php'; 
 
 class User
 {
@@ -28,7 +36,7 @@ class User
             $this->username = $username;
             $this->avatar = $avatar;
             $this->return = $this->new_user();
-            //$this->send_email();
+            $this->send_email();
             $this->access = 0;
             $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
@@ -82,9 +90,32 @@ class User
     }
     function send_email()
     {
-        $message = "Line 1\r\nLine 2\r\nLine 3" . $this->tmp_password;
-        $message = wordwrap($message, 70, "\r\n");
-        mail($this->email, 'My Subject', $message);
+        $mail = new PHPMailer(true);
+        try {
+            //Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'sexinfo.asi@gmail.com';                     //SMTP username
+            $mail->Password   = 'cxnmqccfvyataqbd';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+            //Recipients
+            $mail->setFrom('sexinfo.asi@gmail.com', 'sexinfo');
+            $mail->addAddress($this->email, $this->username);     //Add a recipient
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = 'Here is the subject';
+            $mail->Body    = 'Here is your secret password <b>'.$this->tmp_password.'</b>';
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
     }
     function generate_password()
     {
