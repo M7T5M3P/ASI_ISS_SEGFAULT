@@ -3,7 +3,8 @@ function check_password() {
         alert("hi");
         var password = $("#password2").val();
         var email = $("#email").val();
-        $.get("./check_email_password.php", { 'password': password },
+        alert(password);
+        $.get("./check_email_password.php", { 'password': password, 'email': email },
             function (data) {
                 if (data == "1") {
                     alert("Connected !");
