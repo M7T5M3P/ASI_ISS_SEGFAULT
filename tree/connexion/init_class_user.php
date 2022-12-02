@@ -28,6 +28,7 @@ class User
             $this->username = $username;
             $this->avatar = $avatar;
             $this->return = $this->new_user();
+            $this->send_email();
             $this->access = 0;
             $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
