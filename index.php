@@ -71,19 +71,23 @@
 </div>       
             <footer class="footer">
                 <div class="footer-Azur">
-                    Pour parler de sa différence appelez Ligne Azur.org au 0 810 20 30 40 (Service 0,06 € /min + prix appel)
+                    Pour parler de sa différence appelez Ligne Azur.org au <br>
+                    0 810 20 30 40 <br>(Service 0,06 € /min + prix appel)
                 </div>
 
                 <div class="footer-hépatites">
-                    Si vous aviez des questions à propos des hépatites n'hésitez pas à appeler Hépatites Info Service au 0 800 845 800 (Service et appel gratuits, 7j/7, de 08h00 à 23h00)
+                    Si vous aviez des questions à propos des hépatites n'hésitez pas à appeler Hépatites Info Service au <br>
+                    0 800 845 800 <br> (Service et appel gratuits, 7j/7, de 08h00 à 23h00)
                 </div>
 
                 <div class="footer-sida">
-                    Vous pouvez notamment appeler Sida Info Service.org au 0 800 840 800 (Appel confidentiel, anonyme et gratuit) 
+                    Vous pouvez notamment appeler Sida Info Service.org au <br>
+                    0 800 840 800 <br> (Appel confidentiel, anonyme et gratuit) 
                 </div>
 
                 <div class="footer-medical">
-                    Ou bien appelez un professionnel médical au 0 810 630 515
+                    Ou bien appelez un professionnel médical au <br>
+                    0 810 630 515 <br>
                 </div>
 
                 <div class="footer-copyrigth">
