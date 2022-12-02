@@ -34,23 +34,33 @@
                     d="M0,192L26.7,197.3C53.3,203,107,213,160,197.3C213.3,181,267,139,320,144C373.3,149,427,203,480,213.3C533.3,224,587,192,640,192C693.3,192,747,224,800,229.3C853.3,235,907,213,960,176C1013.3,139,1067,85,1120,106.7C1173.3,128,1227,224,1280,229.3C1333.3,235,1387,149,1413,106.7L1440,64L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z"
                     style="--darkreader-inline-fill: #007acc;"></path>
             </svg>
+
             <div class="login-portal__interface">
                 <div class='login-portal__interface--message'>
                     <h1>Login</h1>
                 </div>
-                <div class='login-portal__interface--input'>
-                    <div class="login-portal__interface--input--email">
-                        <label for="email-input">
-                            <svg class="login-portal__interface--input--email--icon">
-                                <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-envelope"></use>
-                            </svg>
-                        </label>
-                        <input class='login-portal__interface--input--email--input' id='password' type='password'
-                            name='password' placeholder='Secret Password' required>
+                <form onsubmit="event.preventDefault(); check_password(); return false;">
+                    <div class='login-portal__interface--input'>
+                        <div class="login-portal__interface--input--email">
+                            <label for="email-input">
+                                <svg class="login-portal__interface--input--email--icon">
+                                    <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-envelope">
+                                    </use>
+                                </svg>
+                            </label>
+                            <input class='login-portal__interface--input--email--input' id='password' type='password'
+                                name='password' placeholder='Secret Password' required>
+                        </div>
                     </div>
-                </div>
+                    <div class="login-portal__interface--input--submit">
+                        <input class='login-portal__interface--input--submit-btn' type='submit' name='signin'
+                            value='Sign In' id='signin'>
+                    </div>
             </div>
         </div>
+        </form>
+    </div>
+    </div>
 </body>
 
 </html>
