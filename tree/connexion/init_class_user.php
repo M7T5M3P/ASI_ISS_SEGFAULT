@@ -34,7 +34,8 @@ class User
         } else if ($bool == 1) {
             $this->access = $this->get_access();
             $this->username = $this->get_username();
-            if ($this->connect_user())
+            $this->return = $this->connect_user();
+            if ($this->return)
                 $this->html = $this->create_html(1);
             else
                 $this->html = $this->create_html(0);
@@ -175,7 +176,6 @@ class User
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
-        var_dump($row);
         if (password_verify($this->password, $row['password'])) {
             $password = 1;
         } else {

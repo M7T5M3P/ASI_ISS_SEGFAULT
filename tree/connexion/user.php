@@ -18,5 +18,5 @@ if (isset($_GET["tmp_pwd"])) {
     echo $user->return;
 } else {
     $result = new User($signin, null, $password, $email, null, null);
-    echo $result->html;
+    echo $result->return;
 }
