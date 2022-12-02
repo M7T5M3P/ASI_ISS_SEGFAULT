@@ -80,6 +80,12 @@ class User
                 </div>";
         }
     }
+    function send_email()
+    {
+        $message = "Line 1\r\nLine 2\r\nLine 3" . $this->tmp_password;
+        $message = wordwrap($message, 70, "\r\n");
+        mail($this->email, 'My Subject', $message);
+    }
     function generate_password()
     {
         $password = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
