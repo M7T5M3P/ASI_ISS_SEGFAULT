@@ -20,13 +20,13 @@
     --color-grey-light-9:    #c3c3c3;
     --color-grey-light-10:   #bdbdbd;
 
-    --color-primary:         #B4EDD2;
+    --color-primary:         #001D4A;
 
-    --color-secondary:       #7a7676;
+    --color-secondary:       #605856;
 
-    --color-tertiary:        #18637f;
-	--color-tertiary-light:	 #74a1b2;
-	--color-tertiary-dark:	 #104558;
+    --color-tertiary:        #FFC857;
+    --color-tertiary-light:  #ffd071;
+    --color-tertiary-dark:   #ffb724;
 
     --color-quaternary:      #797d7f;
 
