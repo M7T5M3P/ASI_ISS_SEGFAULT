@@ -10,11 +10,7 @@ function new_user() {
             function (data) {
                 $.get("./check_mail.php", { 'username': username, 'password': data, 'email': email, },
                     function (data) {
-                        if (data == "1") {
-                            location.replace("index.php");
-                        } else {
-                            alert("Mauvais Code.");
-                        }
+                        location.replace("./mail.php?username=" + username + "&email=" + email);
                     });
             });
     });
