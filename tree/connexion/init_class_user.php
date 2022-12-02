@@ -161,9 +161,7 @@ class User
     }
     function check_password_email()
     {
-        echo $this->get_tmp_password() . "<br>";
-        echo $this->tmp_password;
-        if (password_verify($this->tmp_password, $this->get_tmp_password())) {
+        if (strcmp($this->tmp_password, $this->get_tmp_password()) == 0) {
             return 1;
         }
         return 0;
