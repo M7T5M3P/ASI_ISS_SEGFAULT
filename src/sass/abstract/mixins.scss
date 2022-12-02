@@ -30,6 +30,6 @@ ORDER: Base + typography > general layout + grid > page layout > components
         @media only screen and (min-width: 37.5em) { @content };  // more than 600px
     }
     @if $breakpoint == not-tab-port {
-        @media only screen and (min-width: 56.25) {@content};     // more than 900px
+        @media only screen and (min-width: 56.25em) {@content};     // more than 900px
     }
 }

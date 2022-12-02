@@ -58,7 +58,7 @@ html {
       font-size: 50%; } }
   @media only screen and (max-width: 37.5em) {
     html {
-      font-size: 43.75; } }
+      font-size: 43.75%; } }
   @media only screen and (min-width: 112.5em) {
     html {
       font-size: 75%; } }
@@ -184,8 +184,11 @@ html {
   @media only screen and (max-width: 56.25em) {
     .navigation {
       padding: 1rem 0; } }
-  .navigation__logo--img {
-    width: 8rem; }
+  .navigation__logo {
+    max-width: 45%; }
+    .navigation__logo--img {
+      width: 9rem;
+      max-width: 100%; }
   .navigation__nav {
     display: none; }
   .navigation__portal {
@@ -221,9 +224,16 @@ html {
     .navigation__visible--right {
       display: flex;
       justify-content: flex-end;
-      align-items: center; }
+      align-items: center;
+      overflow: hidden;
+      width: 4rem;
+      height: 4rem; }
       .navigation__visible--right > *:not(:last-child) {
         padding: 1rem; }
+      .navigation__visible--right--icon {
+        width: 4rem;
+        fill: var(--color-grey-dark-3);
+        transition: .2s ease-in-out; }
       .navigation__visible--right p {
         color: var(--color-grey-dark-3);
         font-size: 1.3rem;
@@ -248,6 +258,8 @@ html {
           margin: 0 1rem; }
   .navigation__checkbox {
     display: none; }
+  .navigation__checkbox:checked .navigation__visible--right--icon {
+    transform: rotate(180deg); }
   .navigation__button {
     height: 7rem;
     width: 7rem;

@@ -128,7 +128,7 @@
         display: none;
     }
 
-    &__checkbox:checked .navigation__visible--right--icon {
+    &__checkbox:checked ~ &__visible .navigation__visible--right--icon {
         transform: rotate(180deg);
     }
         
