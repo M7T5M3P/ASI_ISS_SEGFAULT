@@ -1,6 +1,7 @@
-function new_user() {
+function check_password() {
 
     $("#password").click(function () {
+        alert("hi");
         var password = $("#password").val();
         var email = $("#email").val();
         $.get("./check_email_password.php", { 'password': password },

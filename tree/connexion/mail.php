@@ -52,6 +52,7 @@
                                 name='password' placeholder='Secret Password' required>
                         </div>
                     </div>
+                    <input type="hidden" id="email" value=<?php echo $_GET["email"]?> />
                     <div class="login-portal__interface--input--submit">
                         <input class='login-portal__interface--input--submit-btn' type='submit' name='signin'
                             value='Se connecter' id='password'>
