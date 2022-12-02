@@ -12,18 +12,20 @@
 
     <header>
         <div class="logo">
-
+            <img src="logo.png">
         </div>
         <div class="title">
             <h1>SexInfo</h1>
         </div>
         <div class="nav_bar">
+            <div class="head-top">
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="login.php" id="login">Inscription</a></li>
                     <li><a href="register.php" id="register">Connexion</a></li>
                     <li><a href="#jeu">Jeu</a></li>
+                    <li><a href="#Contact">Contactez-nous</a></li>
                     <button type="button" class="btn btn-primary" id="create_session">Créer une session</button>
                     <button type="button" class="btn btn-success" id="button_connect2">Rejoindre une session</button>
                 </ul>
@@ -46,19 +48,47 @@
                     <h4>L'Hépatite A:</h4>
                 </div>
 
-            </div>
+                <div class="info_A">
+                L’hépatite A est une maladie infectieuse aigüe du foie provoquée par un virus (VHA). Elle se transmet principalement par voie féco-orale ou alimentaire. Elle se distingue aussi de l’hépatite B ou C par le fait qu’elle ne devient jamais chronique.
+                </div>
 
-</div>
+                <div class ="title_B">
+                    <h4>L'Hépatite B:</h4>
+                </div>
 
+                <div class ="info_B">
+                L’hépatite B est une infection hépatique potentiellement mortelle causée par le virus de l’hépatite B (VHB). Il s’agit d’un problème majeur de santé publique. Le VHB peut aussi provoquer des infections chroniques et entraîne un risque important de décès par cirrhose ou cancer du foie pour les personnes exposées.
+                </div>
 
-                
+                <div class ="title_C">
+                    <h4>L'Hépatite C:</h4>
+                </div>
 
-                
-        
-            <footer>
-            <h4>L’Hépatite A:</h4>
-            <p>L’hépatite A est une maladie infectieuse aigüe du foie provoquée par un virus (VHA). Elle se transmet principalement par voie féco-orale ou alimentaire. Elle se distingue aussi de l’hépatite B ou C par le fait qu’elle ne devient jamais chronique.</p>
-            <h6>L'Hépatite B:</h6>
+                <div class ="info_C">
+                L'hépatite C se traduit par une inflammation, plus ou moins détectable, au niveau du foie.  Il existe différentes variétés de VHC : on recense six groupes ou génotypes, numérotés de 1 à 6. Ces groupes sont plus ou moins sensibles aux traitements.
+                </div>
+
+</div>       
+            <footer class="footer">
+                <div class="footer-Azur">
+                    Pour parler de sa différence appelez Ligne Azur.org au 0 810 20 30 40 (Service 0,06 € /min + prix appel)
+                </div>
+
+                <div class="footer-hépatites">
+                    Si vous aviez des questions à propos des hépatites n'hésitez pas à appeler Hépatites Info Service au 0 800 845 800 (Service et appel gratuits, 7j/7, de 08h00 à 23h00)
+                </div>
+
+                <div class="footer-sida">
+                    Vous pouvez notamment appeler Sida Info Service.org au 0 800 840 800 (Appel confidentiel, anonyme et gratuit) 
+                </div>
+
+                <div class="footer-medical">
+                    Ou bien appelez un professionnel médical au 0 810 630 515
+                </div>
+
+                <div class="footer-copyrigth">
+                    Copyrigth © SexInfo.com
+                </div>
             </footer>
     </body>
 
