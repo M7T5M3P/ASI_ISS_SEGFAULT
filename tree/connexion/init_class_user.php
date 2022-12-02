@@ -15,6 +15,7 @@ class User
     public $access;
     public $html;
     public $tmp_password;
+    public $return;
 
     function __construct($bool, ?string $username = null, $password, $email, ?string $avatar = null, ?string $tmp_pwd = null)
     {
@@ -26,7 +27,7 @@ class User
             $this->tmp_password = $this->generate_password();
             $this->username = $username;
             $this->avatar = $avatar;
-            $this->new_user();
+            $this->return = $this->new_user();
             $this->access = 0;
             $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
@@ -37,7 +38,6 @@ class User
             else
                 $this->html = $this->create_html(0);
         } else {
-            echo "ici <br><br>";
             $this->access = $this->get_access();
             $this->tmp_password = $tmp_pwd;
             $this->username = $this->get_username();
@@ -48,7 +48,6 @@ class User
     }
     function modify_access()
     {
-        echo "j'essaye";
         $sql = "UPDATE `user` SET `access` = 1 WHERE `email` = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
@@ -92,7 +91,6 @@ class User
     }
     function get_tmp_password()
     {
-        echo $this->email;
         $sql = "SELECT tmp_password FROM user WHERE email Like ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
@@ -157,7 +155,9 @@ class User
             $stmt->execute();
             $this->conn->close();
             $this->send_email();
+            return 1;
         }
+        return 0;
     }
     function check_password_email()
     {
