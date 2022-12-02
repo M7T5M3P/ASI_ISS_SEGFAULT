@@ -7,7 +7,7 @@ function check_password() {
                 alert(data);
                 if (data == "1") {
                     alert("Connected !");
-                    location.replace("../game/game01.php?email=" + email);
+                    location.replace("../game/game01/game01.php?email=" + email);
                 } else {
                     alert("Wrong Password !");
                 }
