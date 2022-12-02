@@ -3,6 +3,7 @@ $(document).ready(function () {
         location.replace("login.php")
     });
     $("#signin").click(function () {
+        alert("hi");
         var username = $("#username").val();
         var password = $("#password").val();
         var avatar = $("#avatar").val();
