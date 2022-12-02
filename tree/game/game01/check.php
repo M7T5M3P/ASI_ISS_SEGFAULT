@@ -24,6 +24,5 @@
         $row = $result->fetch_assoc();
         return $row;
     }
-    // var_dump(json_encode(generate_question($conn)));
     echo json_encode(generate_question($conn));
 ?>
