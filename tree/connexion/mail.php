@@ -48,7 +48,7 @@
                                     </use>
                                 </svg>
                             </label>
-                            <input class='login-portal__interface--input--email--input' id='password' type='password'
+                            <input class='login-portal__interface--input--email--input' id='password2' type='password'
                                 name='password' placeholder='Secret Password' required>
                         </div>
                     </div>
