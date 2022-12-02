@@ -24,7 +24,7 @@ function CallAPI($method, $url, $data = false)
 
     // Optional Authentication:
     $authorization = "Authorization: Bearer 23b09f09da7c349aec07c2904b59da11";
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $authorization ));
 
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
