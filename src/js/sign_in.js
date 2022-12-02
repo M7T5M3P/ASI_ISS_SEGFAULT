@@ -16,7 +16,7 @@ function new_user() {
             alert("Aucun mot de passe!");
         else {
             //user.php ? username = mathys & email=tmp4 & avatar=tmp3 & password=tyo & signin=2 & tmp_pwd=
-            $.get("./user.php", { 'username': username, 'password': password, 'email': email, 'avatar': avatar, 'signin': 2, 'tmp_pwd': '' },
+            $.get("./user.php", { 'username': username, 'password': password, 'email': email, 'avatar': avatar, 'signin': 0 },
                 function (data) {
                     alert(data);
                     if (data == "1") {

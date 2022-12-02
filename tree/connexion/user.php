@@ -8,14 +8,14 @@ $username = $_GET["username"];
 $email = $_GET["email"];
 $avatar = $_GET["avatar"];
 $password = $_GET["password"];
-
+$signin = $_GET["signin"];
 if (isset($_GET["tmp_pwd"])) {
     $tmp_pwd = $_GET["tmp_pwd"];
-    $user = new User(2, $username, $password, $email, $avatar, $tmp_pwd);
+    $user = new User($signin, $username, $password, $email, $avatar, $tmp_pwd);
     echo $user->html;
 } else if ($_GET["signin"] == 0) {
-    $user = new User(0, $username, $password, $email, $avatar, null);
+    $user = new User($signin, $username, $password, $email, $avatar, null);
 } else {
-    $result = new User(1, null, $password, $email, null, null);
+    $result = new User($signin, null, $password, $email, null, null);
     echo $result->html;
 }
