@@ -28,41 +28,54 @@ class User
             $this->avatar = $avatar;
             $this->new_user();
             $this->access = 0;
-            $this->html = $this->create_html();
+            $this->html = $this->mail_html(0);
         } else if ($bool == 1) {
             $this->access = $this->get_access();
             $this->username = $this->get_username();
-            if ($this->connect_user() == 0)
-                $this->html = $this->create_html();
+            if ($this->connect_user())
+                $this->html = $this->create_html(1);
             else
-                $this->html = $this->create_html();
+                $this->html = $this->create_html(0);
         } else {
+            echo "ici <br><br>";
             $this->access = $this->get_access();
             $this->tmp_password = $tmp_pwd;
             $this->username = $this->get_username();
-            if ($this->connect_user() == 0)
-                $this->html = $this->create_html();
-            else
-                $this->html = $this->create_html();
+            if ($this->check_password_email())
+                $this->modify_access();
+            $this->html = $this->mail_html();
         }
     }
     function modify_access()
     {
+        echo "j'essaye";
         $sql = "UPDATE `user` SET `access` = 1 WHERE `email` = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
         $stmt->execute();
         $this->conn->close();
     }
-    function create_html()
+    function create_html($check)
     {
-        if ($this->access == 0) {
+        if ($check) {
             return "<div class=\"connection\">
-                    An email was sent
+                    connected
                 </div>";
         } else {
             return "<div class=\"connection\">
+                    not connected
+                </div>";
+        }
+    }
+    function mail_html()
+    {
+        if ($this->access) {
+            return "<div class=\"connection\">
                     connected
+                </div>";
+        } else {
+            return "<div class=\"connection\">
+                    check your mail
                 </div>";
         }
     }
@@ -79,6 +92,7 @@ class User
     }
     function get_tmp_password()
     {
+        echo $this->email;
         $sql = "SELECT tmp_password FROM user WHERE email Like ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $this->email);
@@ -136,7 +150,7 @@ class User
         if ($this->check_email() != 1) {
             $options = ['cost' => 12,];
             $password = password_hash($this->password, PASSWORD_BCRYPT, $options);
-            $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `access`) VALUES (?,?,?,?,?,?)";
+            $sql = "INSERT INTO `user`(`username`, `password`, `email`, `ip`, `avatar`, `tmp_password`) VALUES (?,?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $ip = $this->getIPAddress();
             $stmt->bind_param("ssssss", $this->username, $password, $this->email, $ip, $this->avatar, $this->tmp_password);
@@ -144,6 +158,15 @@ class User
             $this->conn->close();
             $this->send_email();
         }
+    }
+    function check_password_email()
+    {
+        echo "<br>" . $this->tmp_password . ":" . $this->get_tmp_password() . "<br>";
+        if (strcmp($this->tmp_password, $this->get_tmp_password()) == 0) {
+            echo "here";
+            return 1;
+        }
+        return 0;
     }
     function connect_user()
     {
@@ -153,8 +176,11 @@ class User
         $stmt->execute();
         $result = $stmt->get_result();
         $row = $result->fetch_assoc();
+        var_dump($row);
         if (password_verify($this->password, $row['password'])) {
             $password = 1;
+        } else {
+            $password = 0;
         }
         $this->conn->close();
         if ($password == 1)

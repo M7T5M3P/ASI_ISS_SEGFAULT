@@ -157,3 +157,12 @@ html {
     align-items: center; }
     .login-portal__interface--options a {
       color: white; }
+
+.signin {
+  width: 100%;
+  grid-area: signin;
+  border: 10px solid black;
+  border-top: none;
+  font-size: x-large;
+  color: #fdc600;
+  background-color: #006400; }
