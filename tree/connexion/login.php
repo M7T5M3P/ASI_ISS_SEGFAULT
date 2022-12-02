@@ -35,7 +35,7 @@
                         <div class="login-portal__interface--input--email">
                             <label for="email-input">
                                 <svg class="login-portal__interface--input--email--icon">
-                                    // <use xlink:href="../img/sprint.svg#icon-envelope-o"></use>
+                                     <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-envelope"></use>
                                 </svg>
                             </label>
                             <input class='login-portal__interface--input--email--input' id='email' type='email' name='email' placeholder='Nickname' required>
@@ -43,7 +43,7 @@
                         <div class="login-portal__interface--input--password">
                             <label for="password-input">
                                 <svg class="login-portal__interface--input--password--icon">
-                                    // <use xlink:href="../img/sprint.svg#icon-lock1"></use>
+                                     <use xlink:href="<?php echo $sex_info->get_ICONS() ?>sprite.svg#icon-lock-closed"></use>
                                 </svg>
                             </label>
                             <input class='login-portal__interface--input--password--input' id='password' type='password' name='password' placeholder='Password' required>
