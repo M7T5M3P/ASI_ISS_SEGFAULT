@@ -1,7 +1,4 @@
-$(document).ready(function () {
-    $("#login").click(function () {
-        location.replace("login.php")
-    });
+function new_user() {
     $("#signin").click(function () {
         alert("hi");
         var username = $("#username").val();
@@ -30,4 +27,4 @@ $(document).ready(function () {
                 });
         }
     });
-});
+}
