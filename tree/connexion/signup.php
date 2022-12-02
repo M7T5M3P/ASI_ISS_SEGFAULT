@@ -29,8 +29,8 @@ $sex_info = new parse_ini();
             </div>
             <form method='post'>
                 <div class="login-portal__interface">
-                    <div class='login-portal__interface--message'>
-                        <h1>Signup</h1>
+                    <div class=' login-portal__interface--message'>
+                        <h1>Sign In</h1>
                     </div>
                     <div class='login-portal__interface--input'>
                         <div class="login-portal__interface--input--avatar">
@@ -70,8 +70,8 @@ $sex_info = new parse_ini();
                                 name='password' placeholder='Password' required>
                         </div>
                         <div class="login-portal__interface--input--submit">
-                            <input class='login-portal__interface--input--submit-btn' type='submit' name='login'
-                                value='Login'>
+                            <input class='login-portal__interface--input--submit-btn' type='submit' name='signin'
+                                value='Sign In'>
                         </div>
                     </div>
                     <div class='login-portal__interface--options'>
